@@ -32,7 +32,7 @@ public class TicketRepository {
     public ResponseEntity<?> createTicket(Ticket ticket){
         String TicketId = ticket.getId();
         String FlightId = ticket.getFlightId();
-        List<Flight> flights = flightRepository.getAllFlights();
+        List<Flight> flights = flightRepository.getAllFlights("asc");
         for (Flight flight : flights) {
             if (flight.getId().equals(FlightId)) {
                 System.out.println("Flight found: " + flight);

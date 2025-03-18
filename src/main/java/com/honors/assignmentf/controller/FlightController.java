@@ -16,8 +16,8 @@ public class FlightController {
     FlightService flightService;
 
     @GetMapping("/")
-    List<Flight> getAllFlights(){
-        return flightService.getAllFlights();
+    List<Flight> getAllFlights(@RequestParam(required = false, defaultValue = "asc", name = "sort") String sort){
+        return flightService.getAllFlights(sort);
     }
 
     @PostMapping()
@@ -34,5 +34,11 @@ public class FlightController {
         }catch (Exception e){
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/{id}/schedules")
+    public List<Flight> getFlightSchedules( @PathVariable String id, @RequestParam(required = false) List<String> dates) {
+
+        return flightService.getFlightSchedules(id, dates);
     }
 }
