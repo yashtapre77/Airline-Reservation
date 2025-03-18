@@ -14,11 +14,11 @@ public class FlightRepository {
     @PostConstruct
     public void init(){
         flightsTable = new HashMap<>();
-        Flight fl = new Flight("1","nagpur","delhi", LocalDateTime.parse("2025-03-20T10:00:00"),LocalDateTime.parse("2025-03-20T10:00:00"));
+        Flight fl = new Flight("f1","nagpur","delhi", LocalDateTime.parse("2025-03-20T10:00:00"),LocalDateTime.parse("2025-03-20T10:00:00"));
         flightsTable.put("1",fl);
     }
 
-    public List<Flight> getAllUsers(){
+    public List<Flight> getAllFlights(){
         return new ArrayList<>(flightsTable.values());
     }
 

@@ -15,23 +15,23 @@ public class TicketController {
     TicketService ticketService;
 
     @PostMapping()
-    Ticket createTicket(@RequestBody Ticket ticket){
-        return ticketService.creteTicket(ticket);
+    ResponseEntity<?> createTicket(@RequestBody Ticket ticket){
+        return ticketService.createTicket(ticket);
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<Ticket> getTicketById(@PathVariable String id){
+    ResponseEntity<?> getTicketById(@PathVariable String id){
         System.out.println("controller "+id);
 
         try{
-            return ResponseEntity.ok().body(ticketService.getTicketById(id));
+            return ticketService.getTicketById(id);
         }catch (Exception e){
             return ResponseEntity.notFound().build();
         }
     }
 
     @DeleteMapping("/{id}")
-    String deleteTicket(@PathVariable String id){
+    ResponseEntity<?> deleteTicket(@PathVariable String id){
         return ticketService.deleteTicket(id);
     }
 }

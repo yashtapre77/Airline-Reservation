@@ -15,7 +15,7 @@ public class FlightService {
     FlightRepository flightRepository;
 
     public List<Flight> getAllFlights(){
-        return flightRepository.getAllUsers();
+        return flightRepository.getAllFlights();
     }
 
     public Flight addFlight(Flight flight){

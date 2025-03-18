@@ -15,5 +15,5 @@ public class Ticket {
     private String email;
     private String seatNumber;
 
-    private Flight flight;
+    private String flightId;
 }
