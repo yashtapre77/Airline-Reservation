@@ -21,7 +21,7 @@ public class FlightController {
     }
 
     @PostMapping()
-    Flight createUser(@RequestBody Flight flight){
+    Flight createFlight(@RequestBody Flight flight){
         return flightService.addFlight(flight);
     }
 
